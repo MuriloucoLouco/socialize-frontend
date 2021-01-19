@@ -1,0 +1,24 @@
+{
+  "title": "Titulo 1",
+  "text": "Lorem Ipsum",
+  "user_id": "123",
+  "post_id": "666",
+  "username": "XxX_Username_XxX",
+  "comments": [
+    {
+      "text": "Comentario 1",
+      "username": "Joaozin",
+      "user_id": "124"
+    },
+    {
+      "text": "Comentario 2",
+      "username": "Lukinhas",
+      "user_id": "125"
+    },
+    {
+      "text": "Comentario 3",
+      "username": "Pedrinho",
+      "user_id": "126"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+body {
+  font-family: Verdana;
+  background-color: #FBFBFB;
+  color: #333;
+}
+
+#header {
+  padding-bottom: 30px;
+}
+
+#posts {
+  max-width: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#send {
+  max-width: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#post_title {
+  height: 1.5rem;
+}
+
+#post_text {
+  height: 5rem;
+  width: 16rem;
+}
+
+.post {
+  margin-bottom: 50px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.profile_picture {
+  width: 35px;
+  height: auto;
+  padding-right: 10px;
+}
+
+.title, .header-options, .username {
+  color: black;
+}
+
+.title:hover, .header-options:hover, .username:hover {
+  color: #444;
+}
+
+.username {
+  text-decoration: none;
+}
