@@ -9,19 +9,25 @@ export default function Post_form(props) {
   function post() {
     const title = document.querySelector('#post_title').value;
     const text = document.querySelector('#post_text').value;
+    const file = document.querySelector('#post_image').files[0];
 
     if (!(title && text)) return;
 
     if (posted) return;
     setPosted(true);
 
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('text', text);
+    formData.append('auth', props.user.auth);
+    if (file) {
+      formData.append('file', file);
+    }
+
     fetch(`${process.env.REACT_APP_API}/post/create`,
     { 
       method: 'POST',
-      headers: {
-        'content-type': 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify({ title, text, auth: props.user.auth })
+      body: formData
     })
     .then(res => res.json())
     .then(obj => {
@@ -53,6 +59,10 @@ export default function Post_form(props) {
             <tr>
               <th><span>Texto: </span></th>
               <td><textarea id="post_text"></textarea></td>
+            </tr>
+            <tr>
+              <th><span>Imagens: </span></th>
+              <td><input type="file" id="post_image" accept="image/*"></input></td>
             </tr>
           </tbody>
         </table>

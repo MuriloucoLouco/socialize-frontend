@@ -31,10 +31,6 @@ body {
   width: 16rem;
 }
 
-.post {
-  margin-bottom: 50px;
-}
-
 .user {
   display: flex;
   align-items: center;
@@ -57,4 +53,26 @@ body {
 
 .username {
   text-decoration: none;
+}
+
+.post_image {
+  max-width: 100%;
+  width: auto;
+  max-height: 40vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.commentbar {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.commentbar_text {
+  color: #555;
+  font-style: italic;
+  text-decoration: none;
+  text-decoration-line: underline;
+  font-weight: 500;
 }
