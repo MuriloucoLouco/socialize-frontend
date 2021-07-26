@@ -22,26 +22,30 @@ body {
   margin-right: auto;
 }
 
+#send > table {
+  width: 100%;
+}
+
 textarea {
   border: 3px dotted black;
   font-size: 1.2rem;
   resize: none;
-  -webkit-appearance: none;
+  width: 100%;
+  max-width: 70vw;
 }
 
 #post_title {
   height: 1.5rem;
-  width: 25rem;
 }
 
 #post_text {
   height: 5rem;
-  width: 25rem;
 }
 
 #post_image {
   border: 3px dotted black;
-  width: 25rem;
+  width: 100%;
+  max-width: 70vw;
 }
 
 .user {
