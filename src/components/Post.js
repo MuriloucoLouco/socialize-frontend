@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 
 function PostImage(props) {
-  if (!!props.details.image) {
+  if (!!props.details.image_id) {
     return (
       <div className="post_image_wrapper">
         <img
           className="post_image"
-          src={`${process.env.REACT_APP_API}/static/photos/${props.details.image}`}
-          alt={props.details.image}
+          src={`${process.env.REACT_APP_API}/static/photos/${props.details.image_id}`}
+          alt={props.details.image_id}
         />
       </div>
     )
