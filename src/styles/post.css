@@ -55,6 +55,10 @@ body {
   text-decoration: none;
 }
 
+.post_image_wrapper {
+  padding-top: 20px;
+}
+
 .post_image {
   max-width: 100%;
   width: auto;
@@ -62,6 +66,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
 }
 
 .commentbar {
