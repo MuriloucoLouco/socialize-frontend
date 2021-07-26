@@ -17,18 +17,31 @@ body {
 }
 
 #send {
-  max-width: 50vh;
+  max-width: 60vh;
   margin-left: auto;
   margin-right: auto;
 }
 
+textarea {
+  border: 3px dotted black;
+  font-size: 1.2rem;
+  resize: none;
+  -webkit-appearance: none;
+}
+
 #post_title {
   height: 1.5rem;
+  width: 25rem;
 }
 
 #post_text {
   height: 5rem;
-  width: 16rem;
+  width: 25rem;
+}
+
+#post_image {
+  border: 3px dotted black;
+  width: 25rem;
 }
 
 .user {
@@ -66,7 +79,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10px;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .commentbar {

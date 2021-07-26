@@ -17,7 +17,7 @@ body {
   align-items: center;
 }
 
-input {
+.forms > input {
   max-width: 70vw;
   width: 70vh;
   padding-left: 1rem;
@@ -31,7 +31,7 @@ input {
   margin-bottom: 2rem;
 }
 
-input:focus {
+.forms > input:focus {
   border-bottom-color: black;
 }
 
