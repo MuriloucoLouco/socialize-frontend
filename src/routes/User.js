@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header.js';
 import Posts from '../components/Posts.js';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 export default function User(props) {
   const [user, setUser] = useState({});
@@ -11,18 +13,18 @@ export default function User(props) {
 
   useEffect(() => {
     setUserData({
-      name: localStorage.getItem('name'),
-      id: localStorage.getItem('id'),
-      auth: localStorage.getItem('auth')
+      name: cookies.get('name'),
+      id: cookies.get('id'),
+      auth: cookies.get('auth')
     });
   }, [location]);
 
   useEffect(() => {
     const paths = location.pathname.split('/');
     paths.shift(0);
-    const userid = paths[1];
-    if (userid) {
-      fetch(`${process.env.REACT_APP_API}/post/user/${userid}`)
+    const user_id = paths[1];
+    if (user_id) {
+      fetch(`${process.env.REACT_APP_API}/post/user/${user_id}`)
       .then(res => res.json())
       .then(new_user => setUser(new_user))
       .then(() => setLoading(false));
@@ -30,7 +32,7 @@ export default function User(props) {
       setLoading(false);
       setUser({ status_code: 'error' });
     }
-  }, []);
+  }, [location.pathname]);
 
   if (loading) {
     return (
@@ -41,7 +43,7 @@ export default function User(props) {
     )
   }
 
-  if (user.status_code != 'ok') {
+  if (user.status_code !== 'ok') {
     return (
       <div>
         <Header user={userData} />
@@ -54,7 +56,7 @@ export default function User(props) {
     <div>
       <Header user={userData} />
       <div id="profile">
-        <img class="profile_header" src="/profile.webp" />
+        <img class="profile_header" src="/profile.webp" alt={user.name} />
         <h1 class="profile_name">{user.name}</h1> 
       </div>
       <Posts posts={user.posts} />

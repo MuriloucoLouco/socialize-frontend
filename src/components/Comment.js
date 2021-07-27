@@ -11,7 +11,7 @@ export default function Comment(props) {
           alt={props.details.username}
         />
         <Link
-          to={`/user/${props.details.userid}`}
+          to={`/user/${props.details.user_id}`}
           className="username"
         >{props.details.username}
         </Link>

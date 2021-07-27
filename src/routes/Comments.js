@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header.js';
-import Comment_form from '../components/Comment_form.js';
+import CommentForm from '../components/CommentForm.js';
 import Post from '../components/Post.js';
 import Comment from '../components/Comment.js';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 export default function Comments(props) {
   const [post, setPost] = useState({});
@@ -13,18 +15,18 @@ export default function Comments(props) {
 
   useEffect(() => {
     setUserData({
-      name: localStorage.getItem('name'),
-      id: localStorage.getItem('id'),
-      auth: localStorage.getItem('auth')
+      name: cookies.get('name'),
+      id: cookies.get('id'),
+      auth: cookies.get('auth')
     });
   }, [location]);
   
   useEffect(() => {
     const paths = location.pathname.split('/');
     paths.shift(0);
-    const postid = paths[1];
-    if (postid) {
-      fetch(`${process.env.REACT_APP_API}/post/id/${postid}`)
+    const post_id = paths[1];
+    if (post_id) {
+      fetch(`${process.env.REACT_APP_API}/post/id/${post_id}`)
       .then(res => res.json())
       .then(new_post => setPost(new_post))
       .then(() => setLoading(false));
@@ -32,22 +34,22 @@ export default function Comments(props) {
       setLoading(false);
       setPost({ status_code: 'error' });
     }
-  }, []);
+  }, [location.pathname]);
   
   if (loading) {
     return (
       <div>
         <Header user={userData} />
-        <h1 class="profile_name">Carregando.</h1> 
+        <h1 className="profile_name">Carregando.</h1> 
       </div>
     )
   }
 
-  if (post.status_code != 'ok') {
+  if (post.status_code !== 'ok') {
     return (
       <div>
         <Header user={userData} />
-        <h1 class="profile_name">Postagem não encontrada.</h1> 
+        <h1 className="profile_name">Postagem não encontrada.</h1> 
       </div>
     )
   }
@@ -55,14 +57,14 @@ export default function Comments(props) {
   return (
     <div>
       <Header user={userData}  />
-      <Comment_form user={userData}  />
+      <CommentForm user={userData}  />
       <div id="posts">
         <Post details={post} />
         <hr />
         <span><strong>Comentarios:</strong></span>
         {
           post.comments &&
-          post.comments.map(comment => <Comment details={comment} />)
+          post.comments.map((comment, index) => <Comment details={comment} key={index}/>)
         }
       </div>
     </div>

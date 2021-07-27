@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Redirect, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-export default function Post_form(props) {
+export default function CommentForm(props) {
   const [error, setError] = useState('');
   const [posted, setPosted] = useState(false);
   const location = useLocation();
@@ -10,26 +10,27 @@ export default function Post_form(props) {
     const text = document.querySelector('#post_text').value;
     const paths = location.pathname.split('/');
     paths.shift(0);
-    const postid = paths[1];
+    const post_id = paths[1];
 
     if (!text) return;
     
     if (posted) return;
     setPosted(true);
 
-    fetch(`${process.env.REACT_APP_API}/post/comment/${postid}`,
+    const formData = new FormData();
+    formData.append('text', text);
+    formData.append('auth', props.user.auth);
+    formData.append('user_id', props.user.id);
+    fetch(`${process.env.REACT_APP_API}/post/comment/${post_id}`,
     { 
       method: 'POST',
-      headers: {
-        'content-type': 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify({ text, auth: props.user.auth })
+      body: formData
     })
     .then(res => res.json())
     .then(obj => {
       if (obj.status_code !== 'ok') {
-        return setError(obj.message);
         setPosted(false);
+        return setError(obj.message);
       }
       window.location.reload();
 

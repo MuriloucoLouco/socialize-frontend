@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Post_form from '../components/Post_form.js';
+import PostForm from '../components/PostForm.js';
 import Posts from '../components/Posts.js';
 import Header from '../components/Header.js';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 export default function Feed(props) {
   const [posts, setPosts] = useState([]);
@@ -11,9 +13,9 @@ export default function Feed(props) {
 
   useEffect(() => {
     setUserData({
-      name: localStorage.getItem('name'),
-      id: localStorage.getItem('id'),
-      auth: localStorage.getItem('auth')
+      name: cookies.get('name'),
+      id: cookies.get('id'),
+      auth: cookies.get('auth')
     });
   }, [location]);
   
@@ -26,7 +28,7 @@ export default function Feed(props) {
   return (
     <div>
       <Header user={userData} />
-      <Post_form user={userData} />
+      <PostForm user={userData} />
       <Posts posts={posts} />
     </div>
   )

@@ -36,7 +36,7 @@ export default function Post(props) {
           src="/profile.webp"
           alt={props.details.username}
         />
-        <Link to={`/user/${props.details.userid}`} className="username">
+        <Link to={`/user/${props.details.user_id}`} className="username">
           {props.details.username}
         </Link><br/><br/>
       </div>

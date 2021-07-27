@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 export default function Login() {
   const [error, setError] = useState('');
@@ -23,9 +25,9 @@ export default function Login() {
         return setError(obj.message);
       }
 
-      localStorage.setItem('name', obj.username);
-      localStorage.setItem('id', obj.userid);
-      localStorage.setItem('auth', obj.message);
+      cookies.set('name', obj.username);
+      cookies.set('id', obj.user_id);
+      cookies.set('auth', obj.message);
 
       setResponse(obj);
     })

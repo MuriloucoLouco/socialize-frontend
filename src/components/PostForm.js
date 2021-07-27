@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-export default function Post_form(props) {
+export default function PostForm(props) {
   const [error, setError] = useState('');
   const [response, setResponse] = useState({});
   const [posted, setPosted] = useState(false);
@@ -20,6 +20,7 @@ export default function Post_form(props) {
     formData.append('title', title);
     formData.append('text', text);
     formData.append('auth', props.user.auth);
+    formData.append('user_id', props.user.id);
     if (file) {
       formData.append('file', file);
     }
@@ -32,8 +33,8 @@ export default function Post_form(props) {
     .then(res => res.json())
     .then(obj => {
       if (obj.status_code !== 'ok') {
-        return setError(obj.message);
         setPosted(false);
+        return setError(obj.message);
       }
       setResponse(obj);
     });
