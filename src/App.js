@@ -5,9 +5,6 @@ import Login from './routes/Login.js';
 import Register from './routes/Register.js';
 import User from './routes/User.js';
 import Comments from './routes/Comments.js';
-import './styles/login.css';
-import './styles/post.css';
-import './styles/user.css';
 
 export default function App() {
   return (
