@@ -1,12 +1,34 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
 export default function Header(props) {
-  function logout() {
-    cookies.remove('name')
-    cookies.remove('id')
-    cookies.remove('auth')
+  const [error, setError] = useState('');
+  const [response, setResponse] = useState({});
+  const [posted, setPosted] = useState(false);
+
+  async function logout() {
+    const formData = new FormData();
+    formData.append('auth', props.user.auth);
+
+    fetch(`${process.env.REACT_APP_API}/account/logout`,
+    { 
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(obj => {
+      if (obj.status_code !== 'ok') {
+        setPosted(false);
+        return setError(obj.message);
+      }
+      setResponse(obj);
+    });
+
+    cookies.remove('name');
+    cookies.remove('id');
+    cookies.remove('auth');
   }
 
   function changeTheme() {
@@ -66,6 +88,12 @@ export default function Header(props) {
         <span>[
           <Link to="/register" className="header-options" >
             <strong>Registrar</strong>
+          </Link>
+        ]</span>
+
+        <span>[
+          <Link onClick={changeTheme} className="header-options">
+            <strong>Mudar tema</strong>
           </Link>
         ]</span>
       </div>
