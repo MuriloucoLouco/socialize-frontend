@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 export default function Header(props) {
   function logout() {
-    localStorage.removeItem('name')
-    localStorage.removeItem('id')
-    localStorage.removeItem('auth')
+    cookies.remove('name')
+    cookies.remove('id')
+    cookies.remove('auth')
   }
 
   if (props.user.name && props.user.id && props.user.auth) {
