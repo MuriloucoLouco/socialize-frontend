@@ -72,6 +72,13 @@ textarea {
   text-decoration: none;
 }
 
+.date {
+  justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .post_image_wrapper {
   padding-top: 20px;
 }

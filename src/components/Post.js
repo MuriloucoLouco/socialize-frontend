@@ -30,6 +30,7 @@ export default function Post(props) {
   return (
     <div className="post">
       <hr/>
+
       <div className="user">
         <img
           className="profile_picture"
@@ -38,8 +39,15 @@ export default function Post(props) {
         />
         <Link to={`/user/${props.details.user_id}`} className="username">
           {props.details.username}
-        </Link><br/><br/>
+        </Link>
+        <div className="date">
+          <div>
+            {new Date(props.details.date).toLocaleDateString("pt-BR")}
+          </div>
+        </div>
+        <br/><br/>
       </div>
+
       <Link to={`/post/${props.details._id}`} className="title">
         <strong>{props.details.title}</strong>
       </Link><br/>

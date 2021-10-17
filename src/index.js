@@ -9,12 +9,16 @@ const LightTheme = React.lazy(() => import('./styles/light/lightTheme'));
 const DarkTheme = React.lazy(() => import('./styles/dark/darkTheme'));
 
 function ThemeSelector({ children }) {
-  const CHOSEN_THEME = cookies.get('theme') || 'light';
+  let chosenTheme = cookies.get('theme');
+  if (!chosenTheme) {
+    cookies.set('theme', 'light');
+    chosenTheme = 'light';
+  }
   return (
     <>
       <React.Suspense fallback={<></>}>
-        {(CHOSEN_THEME === 'light') && <LightTheme />}
-        {(CHOSEN_THEME === 'dark') && <DarkTheme />}
+        {(chosenTheme === 'light') && <LightTheme />}
+        {(chosenTheme === 'dark') && <DarkTheme />}
       </React.Suspense>
       {children}
     </>
