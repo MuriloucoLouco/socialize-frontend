@@ -195,3 +195,21 @@ body {
 .header_picture_overlay {
   color: white;
 }
+
+.copyright {
+  margin-top: 50px;
+  right: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.copyright>span {
+  width: fit-content;
+  max-width: 120vh;
+}
+
+.gnu {
+  font-size: 0.7rem;
+}
