@@ -1,4 +1,4 @@
-# socialize-api
+# socialize-frontend
 
 The social network of the future.
 
