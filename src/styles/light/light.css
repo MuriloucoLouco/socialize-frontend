@@ -1,0 +1,57 @@
+body {
+  background-color: #FBFBFB;
+  color: #333;
+}
+
+textarea {
+  border: 3px dotted black;
+}
+
+#post_image {
+  border: 3px dotted black;
+}
+
+.title, .header-options, .username {
+  color: black;
+}
+
+.title:hover, .header-options:hover, .username:hover {
+  color: #444;
+}
+
+.post_image {
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.commentbar_text {
+  color: #555;
+}
+
+body {
+  background-color: #FBFBFB;
+  color: #333;
+}
+
+.forms > input {
+  border-bottom-color: #BBB;
+}
+
+.forms > input:focus {
+  border-bottom-color: black;
+}
+
+.login-button {
+  background-color: #DDD;
+}
+
+.register {
+  color: black;
+}
+
+.register:hover {
+  color: #444;
+}
+
+.error {
+  color: red;
+}

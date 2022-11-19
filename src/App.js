@@ -6,6 +6,8 @@ import Register from './routes/Register.js';
 import User from './routes/User.js';
 import Comments from './routes/Comments.js';
 
+import './styles/main.css';
+
 export default function App() {
   return (
     <Router>

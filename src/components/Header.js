@@ -33,11 +33,11 @@ export default function Header(props) {
 
   function changeTheme() {
     const currentTheme = cookies.get('theme');
-    if (currentTheme == 'light') {
-      cookies.set('theme', 'dark');
+    if (currentTheme === 'light') {
+      cookies.set('theme', 'dark', {path: '/'});
     }
     else {
-      cookies.set('theme', 'light');
+      cookies.set('theme', 'light', {path: '/'});
     }
     window.location.reload();
   }
@@ -64,9 +64,9 @@ export default function Header(props) {
         ]</span>
 
         <span>[
-          <Link onClick={changeTheme} className="header-options">
+          <a onClick={changeTheme} className="header-options">
             <strong>Mudar tema</strong>
-          </Link>
+          </a>
         ]</span>
       </div>
     )
@@ -92,9 +92,9 @@ export default function Header(props) {
         ]</span>
 
         <span>[
-          <Link onClick={changeTheme} className="header-options">
+          <a onClick={changeTheme} className="header-options">
             <strong>Mudar tema</strong>
-          </Link>
+          </a>
         ]</span>
       </div>
     )

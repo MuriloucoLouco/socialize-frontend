@@ -1,0 +1,85 @@
+body {
+  background-color: #0f0f0f;
+  color: #cacaca;
+}
+
+textarea {
+  border: 3px dotted #cacaca;
+  background-color: #2b2b2b;
+  color: #cacaca;
+}
+
+#post_image {
+  border: 3px dotted #cacaca;
+}
+
+.title, .header-options, .username {
+  color: #cacaca;
+}
+
+.title:hover, .header-options:hover, .username:hover {
+  color: #444;
+}
+
+.post_image {
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.commentbar_text {
+  color: #78787a;
+}
+
+.post > span {
+  color: rgb(243, 243, 243);
+}
+
+hr {
+  color: rgb(212, 212, 212);
+}
+
+.forms > input {
+  border-bottom-color: #78787a;
+}
+
+.forms > input:focus {
+  border-bottom-color: white;
+}
+
+.login-button {
+  background-color: #ffffff;
+}
+
+.register {
+  color: white;
+}
+
+.register:hover {
+  color: #444;
+}
+
+.error {
+  color: red;
+}
+
+#profile {
+  display: flex;
+  align-items: center;
+  max-width: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.profile_header_picture_wrapper {
+  margin-right: 3rem;
+}
+
+.profile_header_picture_wrapper:hover {
+  filter: brightness(50%);
+}
+
+.profile_header_picture {
+  width: 90px;
+  height: auto;
+}
