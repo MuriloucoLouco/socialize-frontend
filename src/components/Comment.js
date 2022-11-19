@@ -7,7 +7,7 @@ export default function Comment(props) {
       <div className="user">
         <img
           className="profile_picture"
-          src="/profile.webp"
+          src={`${process.env.REACT_APP_API}/account/profilepicture/${props.details.user_id}`}
           alt={props.details.username}
         />
         <Link
