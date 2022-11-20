@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import PostForm from '../components/PostForm.js';
 import Posts from '../components/Posts.js';
 import Header from '../components/Header.js';
+import Footer from '../components/Footer.js';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -30,6 +31,7 @@ export default function Feed(props) {
       <Header user={userData} />
       <PostForm user={userData} />
       <Posts posts={posts} />
+      <Footer/>
     </div>
   )
 }

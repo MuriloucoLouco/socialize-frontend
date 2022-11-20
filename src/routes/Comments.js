@@ -4,6 +4,7 @@ import Header from '../components/Header.js';
 import CommentForm from '../components/CommentForm.js';
 import Post from '../components/Post.js';
 import Comment from '../components/Comment.js';
+import Footer from '../components/Footer.js';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
@@ -49,7 +50,8 @@ export default function Comments(props) {
     return (
       <div>
         <Header user={userData} />
-        <h1 className="profile_name">Postagem não encontrada.</h1> 
+        <h1 className="profile_name">Postagem não encontrada.</h1>
+        <Footer/>
       </div>
     )
   }
@@ -67,6 +69,7 @@ export default function Comments(props) {
           post.comments.map((comment, index) => <Comment details={comment} key={index}/>)
         }
       </div>
+      <Footer/>
     </div>
   )
 }

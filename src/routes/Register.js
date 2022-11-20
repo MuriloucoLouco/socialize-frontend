@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Redirect } from 'react-router-dom';;
+import { Redirect } from 'react-router-dom';
+import Footer from '../components/Footer.js';
 
 function validate_email(email) {
   const REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -75,6 +76,7 @@ export default function Register() {
         <strong className="error">{error}</strong>
         <button onClick={register} className="login-button">Registrar</button>
       </div>
+      <Footer/>
     </div>
   )
 }

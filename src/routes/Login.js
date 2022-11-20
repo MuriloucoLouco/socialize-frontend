@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import Footer from '../components/Footer.js';
 
 const cookies = new Cookies();
 
@@ -53,6 +54,7 @@ export default function Login() {
           <Link to="/register" className="register"> Registre-se.</Link>
         </strong></span>
       </div>
+      <Footer/>
     </div>
   )
 }

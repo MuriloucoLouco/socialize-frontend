@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header.js';
 import Posts from '../components/Posts.js';
+import Footer from '../components/Footer.js';
 import Cookies from 'universal-cookie';
 import Compress from 'compress.js';
 
@@ -128,6 +129,7 @@ export default function User(props) {
           <h1 className="profile_name">{user.name}</h1> 
         </div>
         <Posts posts={user.posts} />
+        <Footer/>
       </div>
     )
   }
